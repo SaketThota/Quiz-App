@@ -2,7 +2,6 @@ function validateUser() {
 	let user = document.querySelector('#userId');
 	let pass = document.querySelector('#passId');
 	let status = document.querySelector('#btnSubmitId');
-
 	if (user.value == 'admin' && pass.value == 'admin') {
 		alert('Successfully Loged In');
 		window.location = 'rules.html';
@@ -218,7 +217,7 @@ let current = 0,
 	next = document.querySelector('#btnNext'),
 	cont = document.getElementsByClassName('cont');
 
-if (current <= 19 && current>=0) {
+if (current && current <= 19 && current>=0) {
 	que.textContent = ques[current].q;
 	label1.textContent = ques[current].o1;
 	label2.textContent = ques[current].o2;
@@ -226,7 +225,7 @@ if (current <= 19 && current>=0) {
 	label4.textContent = ques[current].o4;
 }
 
-if (current == 0) prev.disabled = true;
+if (prev && current == 0) prev.disabled = true;
 
 function nextQuestion() {
 	++current;
@@ -236,7 +235,7 @@ function nextQuestion() {
 		clac();
 	}
 
-	if (current <= 19 && current>=0) { 
+	if (current && current <= 19 && current>=0) { 
 		opt1.checked = (userAns[current] == ques[current].o1);
 		opt2.checked = (userAns[current] == ques[current].o2);
 		opt3.checked = (userAns[current] == ques[current].o3);
@@ -322,9 +321,11 @@ var qStatus = document.querySelectorAll('.qStatus'),
 
 var cnt = 0;
 for (let i = 0; i < 20; ++i) {
-	qStatus[i].textContent = 'Undefined';
-	ansStatus[i].textContent = '0 Mark';
-	tblItems[i+1].classList.add('alert-danger');
+	if (qStatus[i] && ansStatus[i] && tblItems[i + 1]) { 
+		qStatus[i].textContent = 'Undefined';
+		ansStatus[i].textContent = '0 Mark';
+		tblItems[i+1].classList.add('alert-danger');
+	}
 }
 
 function clac() {

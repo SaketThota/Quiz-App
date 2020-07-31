@@ -42,8 +42,8 @@ html,body{
 
 .container {
     margin-right: auto;
-	margin-left: auto;
-	width: 90%;
+    margin: 0 12%;
+	width: 50%;
 	padding: 0;
 	border: #337ab7 1px solid;
 	border-radius: 3px;
@@ -70,7 +70,7 @@ html,body{
     background-color: #337ab7;
 	border-color: #337ab7;
     border-radius: 2px;
-    margin: auto;
+    width: 100%;
 }
 
 .panel-heading {
@@ -82,7 +82,7 @@ html,body{
 }
 
 .panel-body {
-	padding: 1.1% 2.3%;
+	padding: 1.1% 4%;
 }
 
 .checkbox, .radio {
