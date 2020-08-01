@@ -43,6 +43,7 @@ let que = document.querySelector('#queId'),
 	label2 = document.querySelector('[for = opt2Id]'),
 	label3 = document.querySelector('[for = opt3Id]'),
 	label4 = document.querySelector('[for = opt4Id]');
+ 
 
 var userAns = [],crtAnsDiv = document.querySelector('#crtAnsDiv'),
 	crtAns = document.querySelector('#crtAns');
@@ -229,6 +230,7 @@ if (prev && current == 0) prev.disabled = true;
 
 function nextQuestion() {
 	++current;
+	// let  gridnum = document.getElementsByClassName((current).toString(10));
 	if (current == 20) { 
 		document.querySelector('#indexBody').style.display = "none";
 		document.querySelector('#resultBody').classList.remove('hide');
@@ -236,10 +238,14 @@ function nextQuestion() {
 	}
 
 	if (current && current <= 19 && current>=0) { 
+			// gridnum[0].classList.add("read");
+		next.value='Next';
 		opt1.checked = (userAns[current] == ques[current].o1);
 		opt2.checked = (userAns[current] == ques[current].o2);
 		opt3.checked = (userAns[current] == ques[current].o3);
 		opt4.checked = (userAns[current] == ques[current].o4);
+		console.log(userAns[current]);
+		
 	}
 	
 	if (current <= 0) {
@@ -264,8 +270,9 @@ function nextQuestion() {
 
 function previousQuestion() {
 	--current;
-
-	if (current >= 0 && current <= 19) { 
+	
+	if (current >= 0 && current <= 19) {
+		next.value='Next';
 		opt1.checked = (userAns[current] == ques[current].o1);
 		opt2.checked = (userAns[current] == ques[current].o2);
 		opt3.checked = (userAns[current] == ques[current].o3);
@@ -300,6 +307,7 @@ function showAnswer() {
 }
 
 function markAns(idx) {
+	let  gridnum = document.getElementsByClassName((current+1).toString(10));
 	if (idx == 1)
 		userAns[current] = ques[current].o1;
 	else if (idx == 2)
@@ -308,6 +316,20 @@ function markAns(idx) {
 		userAns[current] = ques[current].o3;
 	else
 		userAns[current] = ques[current].o4;
+		
+	if(userAns[current]!='-1'){
+		gridnum[0].classList.add("marked");
+	}
+}
+
+function changeTo(curr){
+	let  gridnum = document.getElementsByClassName((curr).toString(10));
+	gridnum[0].classList.add("read");
+
+	current = curr-1;
+	current--;
+	nextQuestion();
+
 }
 
 var qStatus = document.querySelectorAll('.qStatus'),

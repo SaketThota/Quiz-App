@@ -5,7 +5,11 @@ html,body{
 	height: 100%;
 	font-family: 'Montserrat', sans-serif;
 }
+button{
+    text-decoration: none;
+    border: none;
 
+}
 .cont{
     margin-bottom: 5%;
 }
@@ -38,17 +42,69 @@ html,body{
 
 #indexBody{
     margin: 7% 0;
+    
+    margin-left:5%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 1;
+
 }
 
 .container {
-    margin-right: auto;
-    margin: 0 12%;
-	width: 50%;
-	padding: 0;
+    margin-left: 12%;
+    width: 100%;
 	border: #337ab7 1px solid;
-	border-radius: 3px;
+    border-radius: 3px;
+    grid-area: 1/1 / 1/4 ;
 }
 
+.status1{
+    margin-right: 15%;
+    grid-area: 1/5 / 1/7;
+    display:grid;
+    vertical-align: middle;
+    text-align: center;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,1fr);
+    border: #5f5f5f 1px solid;
+    border-radius: 5px;
+    grid-gap: 2px;
+}
+
+.gridnums{
+    /* padding:; */
+    vertical-align: middle;
+    background-color: rgb(226, 226, 226);
+    color: rgb(43, 3, 82) ;
+    font-weight: 500;
+}
+.bd{
+    border:none;
+}
+.bd:nth-child(1){
+    border-top-left-radius: 5px;
+}
+.bd:nth-child(2){
+    border-top-right-radius: 5px;
+}
+.bd:nth-child(3){
+    border-bottom-left-radius: 5px;
+}
+.bd:nth-child(4){
+    border-bottom-right-radius: 5px;
+}
+.gridnums:hover{
+    cursor: pointer;
+    font-weight:bold;
+    font-size: 1.5em;
+    color:rgb(221, 34, 221);
+}
+.read{
+    background-color: grey;
+}
+.marked{
+    background-color: #29b62b;
+}
 .panel-primary {
     border-color: #337ab7;
 }
